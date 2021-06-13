@@ -3,7 +3,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"fIWD":[function(require,module,exports) {
 "use strict";function e(){return{searchForm:document.querySelector("#search-form"),countryList:document.querySelector("#country-list"),searchInput:document.querySelector(".search__input")}}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e;
 },{}],"spyz":[function(require,module,exports) {
-"use strict";function e(e){return fetch(`https://restcountries.eu/rest/v2/name/${e}`).then(t=>e?t.json():void 0).catch(e=>console.log(e))}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e;
+"use strict";function e(e){return fetch(`https://restcountries.eu/rest/v2/name/${e}`).then(t=>e?t.text():void 0).then(e=>e?JSON.parse(e):{}).catch(e=>console.log(e))}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e;
 },{}],"pAws":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -24,4 +24,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{}],"QvaY":[function(require,module,exports) {
 "use strict";require("../sass/main.scss");var e=i(require("./get-rafs")),t=i(require("./fetch")),n=i(require("../templates/countryItem.hbs")),r=i(require("../templates/countriesList.hbs")),u=i(require("./pnotify")),s=i(require("lodash.debounce"));function i(e){return e&&e.__esModule?e:{default:e}}const a=(0,e.default)();function l(e){e.preventDefault();const n=e.target.value;n?(d(),(0,t.default)(n).then(e=>{const t=o(e),n=f(e);if(e)if(e.length>10){d();const e="Найдено слишком много совпадений, уточните ваш запрос";(0,u.default)({title:"Ошибка",text:e,delay:2e3})}else e.length>=2&&e.length<=10?c(n):1===e.length?c(t):alert("Ничего не найдено.Корректно введите запрос")})):d()}function c(e){a.countryList.insertAdjacentHTML("beforeend",e)}function f(e){return(0,r.default)(e)}function o(e){return(0,n.default)(e)}function d(){a.countryList.innerHTML=""}a.searchForm.addEventListener("submit",e=>{e.preventDefault()}),a.searchForm.addEventListener("input",(0,s.default)(e=>{l(e)},500));
 },{"../sass/main.scss":"clu1","./get-rafs":"fIWD","./fetch":"spyz","../templates/countryItem.hbs":"nR06","../templates/countriesList.hbs":"slrs","./pnotify":"fRfm","lodash.debounce":"PZFh"}]},{},["QvaY"], null)
-//# sourceMappingURL=/goit-js-hw-12-countries/js.f94cd960.js.map
+//# sourceMappingURL=/goit-js-hw-12-countries/js.a0bc2f33.js.map
