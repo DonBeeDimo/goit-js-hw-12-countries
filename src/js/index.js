@@ -49,7 +49,7 @@ refs.searchForm.addEventListener('input', debounce(e => {
         } else {
           alert('Ничего не найдено.Корректно введите запрос')
         }  
-      });    
+      })  
   }
 
   function insertListItem(items) {
